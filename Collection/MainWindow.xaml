@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Collection"
         mc:Ignorable="d"
-        Title="Інформація про книги" Height="450" Width="800">
+        Title="Інформація про книги" Height="450" Width="800" Loaded="MainWindow_Loaded">
     <Grid HorizontalAlignment="Center" Width="800" Height="434" VerticalAlignment="Center">
         <Button x:Name="BookListButton" HorizontalAlignment="Center" Margin="0,165,0,217" Width="120" Click="BookListButton_Click">
             <TextBlock TextWrapping="Wrap" Text="Перегляд всіх книг"/>
