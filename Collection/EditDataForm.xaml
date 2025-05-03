@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:Collection"
         mc:Ignorable="d"
         Title="Редагувати книгу" Height="400" Width="600">
-    <Grid>
-        <Button x:Name="ConfirmEditButton" Content="Редагувати" HorizontalAlignment="Left" Margin="240,298,0,0" VerticalAlignment="Top" Height="60" Width="120"/>
+    <Grid HorizontalAlignment="Center" Width="600" Height="384" VerticalAlignment="Center">
+        <Button x:Name="ConfirmEditButton" Content="Редагувати" HorizontalAlignment="Left" Margin="162,298,0,0" VerticalAlignment="Top" Height="60" Width="120"/>
         <TextBox HorizontalAlignment="Left" Margin="25,90,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="30"/>
         <TextBox HorizontalAlignment="Left" Margin="220,90,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="30"/>
         <TextBox Margin="415,90,225,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="30"/>
@@ -18,6 +18,8 @@
         <Label Content="Рік видання" HorizontalAlignment="Left" Margin="458,59,0,0" VerticalAlignment="Top"/>
         <Label Content="№ стелажу" HorizontalAlignment="Left" Margin="150,162,0,0" VerticalAlignment="Top"/>
         <Label Content="№ полиці" HorizontalAlignment="Left" Margin="383,162,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="415,90,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="30"/>
+        <Button x:Name="ConfirmDeleteButton" Content="Видалити" HorizontalAlignment="Left" Margin="320,298,0,26" Width="120"/>
 
     </Grid>
 </Window>

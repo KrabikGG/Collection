@@ -96,6 +96,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Authorization.cs" />
     <Compile Include="BookListForm.xaml.cs">
       <DependentUpon>BookListForm.xaml</DependentUpon>
     </Compile>

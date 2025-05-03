@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Collection"
         mc:Ignorable="d"
-        Title="Список книг" Height="450" Width="800">
+        Title="Список книг" Height="450" Width="800" Loaded="BookListForm_Loaded">
     <Grid Height="434" VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
         <Label Content="Всі доступні книги" HorizontalAlignment="Center" Margin="0,28,0,0" VerticalAlignment="Top"/>
         <ListBox x:Name="BooksListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="180,70,180,141"/>

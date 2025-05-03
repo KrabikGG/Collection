@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Collection"
         mc:Ignorable="d"
-        Title="Авторизація" Height="300" Width="300">
+        Title="Авторизація" Height="300" Width="300" KeyDown="LogInForm_KeyDown" Closed="LogInForm_Closed">
     <Grid Height="284" VerticalAlignment="Center" HorizontalAlignment="Center" Width="300">
         <TextBox x:Name="NicknameTextBox" Margin="120,74,60,192" TextWrapping="Wrap"/>
         <TextBox x:Name="PasswordTextBox" Margin="120,128,60,138" TextWrapping="Wrap"/>
-        <Button x:Name="OkButton" HorizontalAlignment="Center" Margin="0,200,0,0" VerticalAlignment="Top" Height="52" Width="120">
+        <Button x:Name="OkButton" HorizontalAlignment="Center" Margin="0,200,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="OkButton_Click">
             <TextBlock TextWrapping="Wrap" Text="Увійти"/>
         </Button>
         <Label x:Name="NicknameLabel" Content="Логін" HorizontalAlignment="Left" Margin="60,70,0,0" VerticalAlignment="Top"/>
