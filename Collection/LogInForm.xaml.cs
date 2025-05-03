@@ -23,5 +23,34 @@ namespace Collection
         {
             InitializeComponent();
         }
+        private void AuthCheck()
+        {
+            if (MainWindow.logedUser.LogCheck(NicknameTextBox.Text, PasswordTextBox.Text) == 2)
+            {
+                Application.Current.MainWindow.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Неправильно введено дані", "Помилка", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+        }
+        private void OkButton_Click(object sender, RoutedEventArgs e)
+        {
+            AuthCheck();
+        }
+
+        private void LogInForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                AuthCheck();
+            }
+        }
+
+        private void LogInForm_Closed(object sender, EventArgs e)
+        {
+            Application.Current.MainWindow.Show();
+        }
     }
 }

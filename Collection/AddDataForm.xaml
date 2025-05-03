@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:Collection"
         mc:Ignorable="d"
         Title="Додати книгу" Height="400" Width="600">
-    <Grid>
-        <Button x:Name="ConfirmAddButton" Content="Додати" HorizontalAlignment="Center" Margin="0,298,0,0" VerticalAlignment="Top" Height="60" Width="120"/>
+    <Grid HorizontalAlignment="Center" Width="600" Height="384" VerticalAlignment="Center">
+        <Button x:Name="ConfirmAddButton" Content="Додати" HorizontalAlignment="Center" Margin="0,298,0,0" Width="120" Height="60" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Margin="25,90,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="30"/>
         <TextBox HorizontalAlignment="Center" Margin="0,90,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="30"/>
         <TextBox Margin="415,90,25,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="30"/>

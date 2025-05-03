@@ -37,5 +37,22 @@ namespace Collection
             EditWnd.Show();
             //this.Visibility = Visibility.Collapsed;
         }
+
+        private void BookListForm_Loaded(object sender, RoutedEventArgs e)
+        {
+            AddButton.Visibility = Visibility.Hidden;
+            EditButton.Visibility = Visibility.Hidden;
+
+            if (Authorization.logUser == 2)
+            {
+                AddButton.Visibility = Visibility.Visible;
+                EditButton.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                AddButton.Visibility = Visibility.Hidden;
+                EditButton.Visibility = Visibility.Hidden;
+            }
+        }
     }
 }

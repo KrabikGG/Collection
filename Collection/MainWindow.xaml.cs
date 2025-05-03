@@ -20,6 +20,7 @@ namespace Collection
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static Authorization logedUser = new Authorization();
         public MainWindow()
         {
             InitializeComponent();
