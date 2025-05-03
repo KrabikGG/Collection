@@ -55,8 +55,7 @@ namespace Collection
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            DataAccess test = new DataAccess();
-            test.AttemptConnection();
+            
         }
     }
 }

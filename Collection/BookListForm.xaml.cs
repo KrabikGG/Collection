@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,11 +15,9 @@ using System.Windows.Shapes;
 
 namespace Collection
 {
-    /// <summary>
-    /// Логика взаимодействия для BookListForm.xaml
-    /// </summary>
     public partial class BookListForm : Window
     {
+        DataAccess DataConnection;
         public BookListForm()
         {
             InitializeComponent();
@@ -53,6 +52,20 @@ namespace Collection
                 AddButton.Visibility = Visibility.Hidden;
                 EditButton.Visibility = Visibility.Hidden;
             }
+
+            try
+            {
+                BookListDG.ItemsSource = null;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Помилка бази даних: {ex.Message}{Environment.NewLine}{Environment.NewLine}" +
+                               "Перевірте підключення до бази даних та правильність запиту.",
+                               "Помилка MySQL", MessageBoxButton.OK, MessageBoxImage.Error);
+                Console.WriteLine($"MySqlException: {ex.ToString()}");
+            }
+            DataAccess DataConnection = new DataAccess();
+            BookListDG.ItemsSource = DataConnection.bookList;
         }
     }
 }
