@@ -17,14 +17,8 @@ namespace Collection
 {
     public partial class EditDataForm : Window
     {
-
-        // читання даних із БД
         DataAccess DataConnection;
-
         public Book BookToEdit { get; set; }
-
-        //Примірник класу EditDB для виконання редагування/додавання даних про рейс.
-        EditDB editedRow = new EditDB();
 
         public EditDataForm()
         {
@@ -45,7 +39,6 @@ namespace Collection
             else
             {
                 // Якщо BookToEdit null, це може означати, що форма відкрита для додавання нової книги
-                // Залиште TextBox'и порожніми або встановіть значення за замовчуванням.
             }
         }
 
