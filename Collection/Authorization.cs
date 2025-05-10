@@ -16,7 +16,7 @@ namespace Collection
         public int LogCheck(string logText, string pswText)
         {
             logUser = 0;
-            if ((logText == "Ivan") && (pswText == "pedik"))
+            if ((logText == "1") && (pswText == "1"))
             {
                 logUser = 2;
             }

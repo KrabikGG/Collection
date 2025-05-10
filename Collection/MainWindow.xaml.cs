@@ -35,8 +35,8 @@ namespace Collection
         private void BookListButton_Click(object sender, RoutedEventArgs e)
         {
             BookListForm BookListWnd = new BookListForm();
+            this.Close();
             BookListWnd.Show();
-            //this.Visibility = Visibility.Collapsed;
         }
 
         private void FindBookByAuthorAndNameButton_Click(object sender, RoutedEventArgs e)
