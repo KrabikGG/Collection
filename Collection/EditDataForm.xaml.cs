@@ -17,14 +17,8 @@ namespace Collection
 {
     public partial class EditDataForm : Window
     {
-
-        // читання даних із БД
         DataAccess DataConnection;
-
         public Book BookToEdit { get; set; }
-
-        //Примірник класу EditDB для виконання редагування/додавання даних про рейс.
-        EditDB editedRow = new EditDB();
 
         public EditDataForm()
         {
@@ -34,19 +28,11 @@ namespace Collection
 
         private void EditDataForm_Loaded(object sender, RoutedEventArgs e)
         {
-            if (BookToEdit != null)
-            {
                 authorTextBox.Text = BookToEdit.Author;
                 nameTextBox.Text = BookToEdit.Name;
                 yearTextBox.Text = BookToEdit.Year.ToString();
                 numRackTextBox.Text = BookToEdit.Rack_Number.ToString();
                 numShellTextBox.Text = BookToEdit.Shell_Number.ToString();
-            }
-            else
-            {
-                // Якщо BookToEdit null, це може означати, що форма відкрита для додавання нової книги
-                // Залиште TextBox'и порожніми або встановіть значення за замовчуванням.
-            }
         }
 
         private void ConfirmEditButton_Click(object sender, RoutedEventArgs e)

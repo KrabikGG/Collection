@@ -7,12 +7,12 @@
         mc:Ignorable="d"
         Title="Додати книгу" Height="400" Width="600">
     <Grid HorizontalAlignment="Center" Width="600" Height="384" VerticalAlignment="Center">
-        <Button x:Name="ConfirmAddButton" Content="Додати" HorizontalAlignment="Center" Margin="0,298,0,0" Width="120" Height="60" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="25,90,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="30"/>
-        <TextBox HorizontalAlignment="Center" Margin="0,90,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="30"/>
-        <TextBox Margin="415,90,25,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="30"/>
-        <TextBox HorizontalAlignment="Left" Margin="105,188,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="30"/>
-        <TextBox HorizontalAlignment="Left" Margin="335,188,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="30"/>
+        <Button x:Name="ConfirmAddButton" Content="Додати" HorizontalAlignment="Center" Margin="0,298,0,0" Width="120" Height="60" VerticalAlignment="Top" Click="ConfirmAddButton_Click"/>
+        <TextBox x:Name="authorTextBox" HorizontalAlignment="Left" Margin="25,90,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="30"/>
+        <TextBox x:Name="nameTextBox" HorizontalAlignment="Center" Margin="0,90,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="30"/>
+        <TextBox x:Name="yearTextBox" Margin="415,90,25,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="30"/>
+        <TextBox x:Name="numRackTextBox" HorizontalAlignment="Left" Margin="105,188,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="30"/>
+        <TextBox x:Name="numShellTextBox" HorizontalAlignment="Left" Margin="335,188,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="30"/>
         <Label Content="Автор" HorizontalAlignment="Left" Margin="83,59,0,0" VerticalAlignment="Top"/>
         <Label Content="Назва" HorizontalAlignment="Center" Margin="0,59,0,0" VerticalAlignment="Top"/>
         <Label Content="Рік видання" HorizontalAlignment="Left" Margin="458,59,0,0" VerticalAlignment="Top"/>
