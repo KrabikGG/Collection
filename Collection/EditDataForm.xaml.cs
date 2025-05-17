@@ -89,5 +89,35 @@ namespace Collection
             BookListForm BookListWnd = new BookListForm();
             BookListWnd.Show();
         }
+        private void ConfirmDeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (BookToEdit == null)
+            {
+                MessageBox.Show("Немає книги для видалення.", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            MessageBoxResult result = MessageBox.Show($"Ви впевнені, що хочете видалити книгу '{BookToEdit.Name}' автора '{BookToEdit.Author}'?",
+                                                      "Підтвердження видалення", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    EditDB dbAccessor = new EditDB();
+                    dbAccessor.DeleteBook(BookToEdit.Id);
+
+                    MessageBox.Show("Книгу успішно видалено.", "Успіх", MessageBoxButton.OK, MessageBoxImage.Information);
+                    this.DialogResult = true;
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Помилка під час видалення книги з бази даних: {ex.Message}", "Помилка БД", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                BookListForm BookListWnd = new BookListForm();
+                BookListWnd.Show();
+            }
+        }
     }
 }

@@ -76,7 +76,8 @@ namespace Collection
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Помилка при відкритті форми додавання: " + ex.Message, "Помилка");
+                MessageBox.Show("Помилка при відкритті форми редагування: " + ex.Message, "Помилка");
+                // Логування помилки
             }
             this.Close();
         }

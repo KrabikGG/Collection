@@ -27,6 +27,7 @@ namespace Collection
         {
             if (MainWindow.logedUser.LogCheck(NicknameTextBox.Text, PasswordTextBox.Text) == 2)
             {
+                MainWindow.IsUserLoggedIn = true;
                 Application.Current.MainWindow.Show();
                 this.Close();
             }
