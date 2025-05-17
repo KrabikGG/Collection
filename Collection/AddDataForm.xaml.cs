@@ -26,6 +26,9 @@ namespace Collection
 
         private void ConfirmAddButton_Click(object sender, RoutedEventArgs e)
         {
+            BookToAdd.Author = authorTextBox.Text;
+            BookToAdd.Name = nameTextBox.Text;
+
             int year;
             if (int.TryParse(yearTextBox.Text, out year))
             {

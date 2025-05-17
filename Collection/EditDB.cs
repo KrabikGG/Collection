@@ -75,7 +75,6 @@ namespace Collection
 
                     if (rowsAffected == 0)
                     {
-                        // Optional: Handle case where no rows were affected (book not found)
                         MessageBox.Show("Книгу не знайдено в базі даних.", "Помилка видалення", MessageBoxButton.OK, MessageBoxImage.Warning);
                     }
                 }
