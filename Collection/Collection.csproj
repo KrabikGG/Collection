@@ -105,6 +105,7 @@
     <Compile Include="EditDataForm.xaml.cs">
       <DependentUpon>EditDataForm.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditDB.cs" />
     <Compile Include="FindAllBooksByYearForm.xaml.cs">
       <DependentUpon>FindAllBooksByYearForm.xaml</DependentUpon>
     </Compile>

@@ -8,7 +8,7 @@
         Title="Список книг" Height="450" Width="800" Loaded="BookListForm_Loaded">
     <Grid Height="434" VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
         <Label Content="Всі доступні книги" HorizontalAlignment="Center" Margin="0,28,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Center" Margin="0,337,0,0" VerticalAlignment="Top" Height="52" Width="120"/>
+        <Button x:Name="BackButton" Content="Назад" HorizontalAlignment="Center" Margin="0,337,0,0" VerticalAlignment="Top" Height="52" Width="120" Click="BackButton_Click"/>
         <Button x:Name="EditButton" Content="Редагувати" HorizontalAlignment="Left" Margin="505,342,0,0" VerticalAlignment="Top" Height="42" Width="115" Click="EditButton_Click"/>
         <Button x:Name="AddButton" Content="Додати" HorizontalAlignment="Left" Margin="180,342,0,0" VerticalAlignment="Top" Height="42" Width="115" Click="AddButton_Click"/>
         <DataGrid x:Name="BookListDG" HorizontalAlignment="Center"
@@ -19,7 +19,7 @@
                 <DataGridTextColumn Header = "Назва" Binding = "{Binding Name}" Width="Auto"/>
                 <DataGridTextColumn Header = "Автор" Binding = "{Binding Author}" Width="Auto"/>
                 <DataGridTextColumn Header = "Номер полиці" Binding = "{Binding Shell_Number}" Width="Auto"/>
-                <DataGridTextColumn Header = "Номер стелажу" Binding = "{Binding Rack_Namber}" Width="Auto"/>
+                <DataGridTextColumn Header = "Номер стелажу" Binding = "{Binding Rack_Number}" Width="Auto"/>
                 <DataGridTextColumn Header = "Рік" Binding = "{Binding Year}" Width="Auto"/>
             </DataGrid.Columns >
         </DataGrid>

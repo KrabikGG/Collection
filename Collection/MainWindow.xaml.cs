@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace Collection
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public static Authorization logedUser = new Authorization();
@@ -35,8 +32,8 @@ namespace Collection
         private void BookListButton_Click(object sender, RoutedEventArgs e)
         {
             BookListForm BookListWnd = new BookListForm();
+            this.Close();
             BookListWnd.Show();
-            //this.Visibility = Visibility.Collapsed;
         }
 
         private void FindBookByAuthorAndNameButton_Click(object sender, RoutedEventArgs e)

@@ -11,6 +11,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.Media3D;
 using System.Windows.Shapes;
 
 namespace Collection
@@ -21,20 +22,51 @@ namespace Collection
         public BookListForm()
         {
             InitializeComponent();
+            DataConnection = new DataAccess();
         }
+
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             AddDataForm AddWnd = new AddDataForm();
             AddWnd.Show();
-            //this.Visibility = Visibility.Collapsed;
         }
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
-            EditDataForm EditWnd = new EditDataForm();
-            EditWnd.Show();
-            //this.Visibility = Visibility.Collapsed;
+            Book selectedBook = BookListDG.SelectedItem as Book;
+
+            if (selectedBook == null)
+            {
+                MessageBox.Show("Будь ласка, виберіть книгу для редагування.", "Попередження");
+                return;
+            }
+
+            try
+            {
+                EditDataForm EditWnd = new EditDataForm();
+
+
+                EditWnd.BookToEdit = selectedBook;
+
+                bool? result = EditWnd.ShowDialog();
+
+                if (result == true)
+                {
+                    RefreshBookDataGridDisplay();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Помилка при відкритті форми редагування: " + ex.Message, "Помилка");
+            }
+            this.Close();
+        }
+
+        private void RefreshBookDataGridDisplay()
+        {
+            BookListDG.ItemsSource = null;
+            BookListDG.ItemsSource = DataConnection.bookList;
         }
 
         private void BookListForm_Loaded(object sender, RoutedEventArgs e)
@@ -68,9 +100,11 @@ namespace Collection
             BookListDG.ItemsSource = DataConnection.bookList;
         }
 
-        private void BackButton_Click()
+        private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
         }
     }
 }

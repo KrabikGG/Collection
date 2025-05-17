@@ -42,7 +42,7 @@ namespace Collection
                                         reader.GetString("name"),
                                         reader.GetString("author"),
                                         reader.GetInt32("shell_number"),
-                                        reader.GetInt32("rack_namber"),
+                                        reader.GetInt32("rack_number"),
                                         reader.GetInt32("year")
                                     );
                     bookList.Add(book);
