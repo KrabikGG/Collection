@@ -18,15 +18,23 @@ namespace Collection
     public partial class MainWindow : Window
     {
         public static Authorization logedUser = new Authorization();
+        public static bool IsUserLoggedIn = false;
         public MainWindow()
         {
             InitializeComponent();
         }
+
         private void AuthButton_Click(object sender, RoutedEventArgs e)
         {
-            LogInForm LogWnd = new LogInForm();
-            LogWnd.Show();
-            //this.Visibility = Visibility.Collapsed;
+            if (IsUserLoggedIn)
+            {
+                MessageBox.Show("Ви вже успішно увійшли в акаунт", "Авторизація", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                LogInForm LogWnd = new LogInForm();
+                LogWnd.Show();
+            }
         }
 
         private void BookListButton_Click(object sender, RoutedEventArgs e)
@@ -40,14 +48,12 @@ namespace Collection
         {
             FindBookByAuthorAndNameForm NameAuthorWnd = new FindBookByAuthorAndNameForm();
             NameAuthorWnd.Show();
-            //this.Visibility = Visibility.Collapsed;
         }
 
         private void FindBookByYearButton_Click(object sender, RoutedEventArgs e)
         {
             FindAllBooksByYearForm YearWnd = new FindAllBooksByYearForm();
             YearWnd.Show();
-            //this.Visibility = Visibility.Collapsed;
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)

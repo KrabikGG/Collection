@@ -38,5 +38,29 @@ namespace Collection
                 throw new Exception("Помилка виконання запиту на оновлення книги в БД.", ex);
             }
         }
+        public void DeleteBook(int bookId)
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(new DataAccess().connectionString))
+                using (MySqlCommand cmd = new MySqlCommand("DELETE FROM collection WHERE id = ?id", conn))
+                {
+                    cmd.Parameters.Add("?id", MySqlDbType.Int32).Value = bookId;
+
+                    conn.Open();
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    if (rowsAffected == 0)
+                    {
+                        // Optional: Handle case where no rows were affected (book not found)
+                        MessageBox.Show("Книгу не знайдено в базі даних.", "Помилка видалення", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Помилка виконання запиту на видалення книги з БД.", ex);
+            }
+        }
     }
 }
