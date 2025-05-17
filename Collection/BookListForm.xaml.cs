@@ -67,5 +67,10 @@ namespace Collection
             DataAccess DataConnection = new DataAccess();
             BookListDG.ItemsSource = DataConnection.bookList;
         }
+
+        private void BackButton_Click()
+        {
+
+        }
     }
 }
