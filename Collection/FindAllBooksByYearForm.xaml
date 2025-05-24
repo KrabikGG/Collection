@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Collection"
         mc:Ignorable="d"
-        Title="Пошук за роком" Height="250" Width="250">
+        Title="Пошук за роком" Height="250" Width="250" Loaded="FindAllBooksByYearForm_Loaded">
     <Grid HorizontalAlignment="Center" Width="250" Height="234" VerticalAlignment="Center">
         <ListBox x:Name="YearsListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="61,54,61,54"/>
         <Label Content="Виберіть рік" HorizontalAlignment="Center" Margin="0,23,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="FindButton" HorizontalAlignment="Center" Margin="0,190,0,0" VerticalAlignment="Top" Height="30" Width="60">
+        <Button x:Name="FindButton" HorizontalAlignment="Center" Margin="0,190,0,0" VerticalAlignment="Top" Height="30" Width="60" Click="FindButton_Click">
             <TextBlock x:Name="FindButton1" TextWrapping="Wrap" Text="Пошук"/>
         </Button>
     </Grid>
