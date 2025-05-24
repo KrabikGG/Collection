@@ -66,12 +66,15 @@ namespace Collection
 
                     if (foundBook != null)
                     {
-                        string filePath = "found_books.txt";
-                        using (StreamWriter sw = new StreamWriter(filePath, true))
+                        string filePath = $"Test.docx";
+                        try
                         {
-                            sw.WriteLine($"Автор: {foundBook.Author}, Назва: {foundBook.Name}, Рік: {foundBook.Year}, Стелаж: {foundBook.Rack_Number}, Полиця: {foundBook.Shell_Number}");
+                            MessageBox.Show($"Інформацію записано до файлу: \"{System.IO.Path.GetFullPath(filePath)}\"", "Успіх", MessageBoxButton.OK, MessageBoxImage.Information);
                         }
-                        MessageBox.Show("Інформацію записано до файлу.", "Успіх", MessageBoxButton.OK, MessageBoxImage.Information);
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"Помилка при записі до файлу: {ex.Message}", "Помилка запису", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
                     }
                     else
                     {
@@ -84,6 +87,7 @@ namespace Collection
             {
                 MessageBox.Show($"Помилка під час пошуку книги: {ex.Message}", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+            this.Close();
         }
     }
 }
