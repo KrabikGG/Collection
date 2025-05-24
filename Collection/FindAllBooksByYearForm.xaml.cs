@@ -100,8 +100,6 @@ namespace Collection
             {
                 MessageBox.Show("Книг з таким роком не знайдено.", "Результат пошуку", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
             this.Close();
         }
     }

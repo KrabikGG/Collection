@@ -70,6 +70,7 @@ namespace Collection
                         try
                         {
                             MessageBox.Show($"Інформацію записано до файлу: \"{System.IO.Path.GetFullPath(filePath)}\"", "Успіх", MessageBoxButton.OK, MessageBoxImage.Information);
+                            this.Close();
                         }
                         catch (Exception ex)
                         {
@@ -87,7 +88,6 @@ namespace Collection
             {
                 MessageBox.Show($"Помилка під час пошуку книги: {ex.Message}", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            this.Close();
         }
     }
 }
