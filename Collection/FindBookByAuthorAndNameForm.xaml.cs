@@ -141,7 +141,6 @@ namespace Collection
             {
                 MessageBox.Show("Дану книгу не знайдено в базі даних.", "Результат пошуку", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            this.Close();
         }
     }
 }
