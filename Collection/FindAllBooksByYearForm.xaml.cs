@@ -12,51 +12,74 @@ namespace Collection
 {
     public partial class FindAllBooksByYearForm : Window
     {
-        private DataAccess dataAccess;
+        private DataAccess _dataAccess;
+        public List<Book> TestHook_BooksFoundForReport { get; private set; }
 
-        public FindAllBooksByYearForm()
+        public System.Windows.Controls.ListBox GetYearsListBoxForTest() => YearsListBox;
+
+        public FindAllBooksByYearForm(DataAccess dataAccessToUse)
         {
             InitializeComponent();
-            dataAccess = new DataAccess();
+            this._dataAccess = dataAccessToUse;
         }
 
-        private void FindAllBooksByYearForm_Loaded(object sender, RoutedEventArgs e)
+        public FindAllBooksByYearForm() : this(new DataAccess())
+        {
+        }
+
+        public void FindAllBooksByYearForm_Loaded(object sender, RoutedEventArgs e)
         {
             LoadYears();
         }
 
-        private void LoadYears()
+        public void LoadYears()
         {
             try
             {
-                if (dataAccess.bookList == null || !dataAccess.bookList.Any())
+                if (_dataAccess == null || _dataAccess.bookList == null || !_dataAccess.bookList.Any())
                 {
                     MessageBox.Show("Список книг порожній або не завантажений.", "Помилка даних", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    FindButton.IsEnabled = false; return;
+                    if (FindButton != null) FindButton.IsEnabled = false;
+                    return;
                 }
-                var years = dataAccess.bookList.Select(book => book.Year).Distinct().OrderBy(year => year).ToList();
-                if (years.Any()) { YearsListBox.ItemsSource = years; }
-                else { MessageBox.Show("У базі даних немає книг для відображення років.", "Інформація", MessageBoxButton.OK, MessageBoxImage.Information); FindButton.IsEnabled = false; }
+                var years = _dataAccess.bookList.Select(book => book.Year).Distinct().OrderBy(year => year).ToList();
+                if (YearsListBox != null)
+                {
+                    if (years.Any())
+                    {
+                        YearsListBox.ItemsSource = years;
+                    }
+                    else
+                    {
+                        MessageBox.Show("У базі даних немає книг для відображення років.", "Інформація", MessageBoxButton.OK, MessageBoxImage.Information);
+                        if (FindButton != null) FindButton.IsEnabled = false;
+                    }
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Помилка завантаження років: {ex.Message}", "Критична помилка", MessageBoxButton.OK, MessageBoxImage.Error); FindButton.IsEnabled = false;
+                MessageBox.Show($"Помилка завантаження років: {ex.Message}", "Критична помилка", MessageBoxButton.OK, MessageBoxImage.Error);
+                if (FindButton != null) FindButton.IsEnabled = false;
             }
         }
 
-        private void FindButton_Click(object sender, RoutedEventArgs e)
+        public void FindButton_Click(object sender, RoutedEventArgs e)
         {
             if (YearsListBox.SelectedItem == null)
             {
-                MessageBox.Show("Будь ласка, виберіть рік зі списку.", "Попередження", MessageBoxButton.OK, MessageBoxImage.Warning); return;
+                MessageBox.Show("Будь ласка, виберіть рік зі списку.", "Попередження", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
             }
-            if (dataAccess.bookList == null)
+            if (_dataAccess == null || _dataAccess.bookList == null)
             {
-                MessageBox.Show("Список книг не завантажений.", "Помилка даних", MessageBoxButton.OK, MessageBoxImage.Error); return;
+                MessageBox.Show("Список книг не завантажений.", "Помилка даних", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
 
             int selectedYear = (int)YearsListBox.SelectedItem;
-            List<Book> booksFound = dataAccess.bookList.Where(book => book.Year == selectedYear).ToList();
+            List<Book> booksFound = _dataAccess.bookList.Where(book => book.Year == selectedYear).ToList();
+
+            TestHook_BooksFoundForReport = booksFound;
 
             if (booksFound.Any())
             {

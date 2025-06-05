@@ -8,7 +8,7 @@ using System.Windows;
 
 namespace Collection
 {
-    class DataAccess
+    public class DataAccess
     {
         public string connectionString;
         public List<Book> bookList = new List<Book>();
