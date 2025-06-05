@@ -118,6 +118,7 @@
     <Compile Include="FindBookByAuthorAndNameForm.xaml.cs">
       <DependentUpon>FindBookByAuthorAndNameForm.xaml</DependentUpon>
     </Compile>
+    <Compile Include="IBookFinderService.cs" />
     <Compile Include="LogInForm.xaml.cs">
       <DependentUpon>LogInForm.xaml</DependentUpon>
     </Compile>
@@ -127,6 +128,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MockBookFinderService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
